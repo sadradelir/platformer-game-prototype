@@ -274,6 +274,8 @@ public class CharacterHandler : MonoBehaviour
             ySpeed = jumpSpeed;
         }
 
+        //todo change these to boolean flag instead of commenting the code
+        
         //wall jump
         // if (jumping && rightWalled)
         // {

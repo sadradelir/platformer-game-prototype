@@ -20,7 +20,7 @@ see: Assets\Scripts\CharacterPhysics
 - because it was done in a tight time span it lacks some best practices which I mention here:
   - most of component variables are not implicitly access declared (yes, most of them are public)
   - there is no proper design patterns used in order to maintain better software layering
-  - some string constants and referencing done in properly and in-line
+  - some string constants and referencing not done properly and they are in fact in-line strings (what a shame!)
   - yet there is some unused variables and classes
 
 In the end, what I was seeking through this project was to explore implementing my custom physics and collision detection in a very extreme gameplay environment and speed-run friendly era for further uses in my other projects.

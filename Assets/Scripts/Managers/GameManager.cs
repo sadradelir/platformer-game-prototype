@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     {
         hasKey = false;
         loadLevel(1);
-        // Application.targetFrameRate = 15;
     }
 
 

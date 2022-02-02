@@ -12,16 +12,16 @@ public class GameManager : MonoBehaviour
     public bool hasKey;
     public GameObject levelParent;
     public int currentLevel;
-    
+
     public void loadLevel(int i)
     {
         if (levelParent)
         {
             Destroy(levelParent);
         }
+
         SceneManager.LoadScene("Level" + i, LoadSceneMode.Additive);
         currentLevel = i;
-
     }
 
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         hasKey = false;
         loadLevel(1);
-      // Application.targetFrameRate = 15;
+        // Application.targetFrameRate = 15;
     }
 
 
@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
     public void ReachTheDoor()
     {
         if (hasKey)
-        { 
-           hasKey = false;
-           loadLevel(currentLevel + 1);
+        {
+            hasKey = false;
+            loadLevel(currentLevel + 1);
         }
     }
 }

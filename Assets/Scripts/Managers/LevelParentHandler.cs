@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelParentHandler : MonoBehaviour
 {
     public Transform spawnPoint;
+
     // Start is called before the first frame update
     private void Awake()
     {

@@ -6,17 +6,28 @@ using UnityEngine;
 public class CharacterHandler : MonoBehaviour
 {
     // status 
-    [SerializeField] private bool jumping;
-    [SerializeField] private bool grounded;
+    [SerializeField]
+    private bool jumping;
+
+    [SerializeField]
+    private bool grounded;
+
     public bool touchingMovingPlatform;
     public Transform groundingObjectTransform;
-    
+
     private float xSpeed;
     private float ySpeed;
-    [SerializeField] private bool rightWalled;
-    [SerializeField] private bool leftWalled;
+
+    [SerializeField]
+    private bool rightWalled;
+
+    [SerializeField]
+    private bool leftWalled;
+
 //  [SerializeField] private float lastNonZeroXSpeed;
-    [SerializeField] private float ledgeTime;
+    [SerializeField]
+    private float ledgeTime;
+
     private bool doubleJumped = false;
 
     // balance parameters
@@ -31,10 +42,18 @@ public class CharacterHandler : MonoBehaviour
     public Transform topPosition;
 
     // sensing 
-    [SerializeField] private float distanceToGround;
-    [SerializeField] private float distanceToCeiling;
-    [SerializeField] private float distanceToWallRight;
-    [SerializeField] private float distanceToWallLeft;
+    [SerializeField]
+    private float distanceToGround;
+
+    [SerializeField]
+    private float distanceToCeiling;
+
+    [SerializeField]
+    private float distanceToWallRight;
+
+    [SerializeField]
+    private float distanceToWallLeft;
+
     public BoxCollider2D collider;
 
     // misc
@@ -47,7 +66,6 @@ public class CharacterHandler : MonoBehaviour
     public SpriteRenderer sprite;
     public Animator anim;
 
- 
 
     // Update is called once per frame
     void Update()
@@ -60,7 +78,6 @@ public class CharacterHandler : MonoBehaviour
         ActMovement();
         ActToMovingPlatform();
     }
-
 
 
     private void LateUpdate()
@@ -97,7 +114,7 @@ public class CharacterHandler : MonoBehaviour
             var origin = bottomPosition.position + 0.2f * i * Vector3.right;
             Debug.DrawRay(origin, Vector3.down, Color.red);
             var hit = Physics2D.Raycast(origin,
-                Vector2.down, 1f, LayerMask.GetMask("Ground" , "Slabs"));
+                Vector2.down, 1f, LayerMask.GetMask("Ground", "Slabs"));
             if (hit && hit.distance < distanceToGround)
             {
                 distanceToGround = hit.distance;
@@ -258,28 +275,28 @@ public class CharacterHandler : MonoBehaviour
         }
 
         //wall jump
-      // if (jumping && rightWalled)
-      // {
-      //     xSpeed = -initialSpeed;
-      //     rightWalled = false;
-      //     jumping = false;
-      //     ySpeed = jumpSpeed;
-      // }
+        // if (jumping && rightWalled)
+        // {
+        //     xSpeed = -initialSpeed;
+        //     rightWalled = false;
+        //     jumping = false;
+        //     ySpeed = jumpSpeed;
+        // }
 
-      // //
-      // if (jumping && leftWalled)
-      // {
-      //     xSpeed = initialSpeed;
-      //     leftWalled = false;
-      //     jumping = false;
-      //     ySpeed = jumpSpeed;
-      // }
+        // //
+        // if (jumping && leftWalled)
+        // {
+        //     xSpeed = initialSpeed;
+        //     leftWalled = false;
+        //     jumping = false;
+        //     ySpeed = jumpSpeed;
+        // }
 
         //y 
 
         ySpeed -= gravity * Time.deltaTime;
         ySpeed = Mathf.Max(fallSpeed, ySpeed);
-        
+
         // wall falling 
         // if ((rightWalled || leftWalled) && ySpeed < 0)
         // {
@@ -299,8 +316,8 @@ public class CharacterHandler : MonoBehaviour
         {
             amountToFall = distanceToCeiling;
             ySpeed = 0;
-        } 
-        
+        }
+
         //x
         var amountToMove = xSpeed * Time.deltaTime;
         if (xSpeed > 0 && amountToMove > distanceToWallRight)
@@ -319,8 +336,8 @@ public class CharacterHandler : MonoBehaviour
 
         transform.Translate(amountToMove, amountToFall, 0);
     }
-    
-    
+
+
     private void ActToMovingPlatform()
     {
         if (grounded && groundingObjectTransform.CompareTag("MovingPlatform"))

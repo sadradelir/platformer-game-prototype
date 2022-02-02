@@ -20,6 +20,7 @@ public class CharacterColideHandler : MonoBehaviour
                 {
                     GameManager.instance.HitHazard();
                 }
+
                 if (colides[i].tag.Equals("Door"))
                 {
                     if (GameManager.instance.hasKey)
@@ -27,10 +28,12 @@ public class CharacterColideHandler : MonoBehaviour
                         GameManager.instance.ReachTheDoor();
                     }
                 }
+
                 if (colides[i].tag.Equals("Spring"))
                 {
-                   // GameManager.instance.character.SpringJump();
+                    // GameManager.instance.character.SpringJump();
                 }
+
                 if (colides[i].tag.Equals("Key"))
                 {
                     GameManager.instance.GetKey();

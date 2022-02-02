@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using PathCreation;
 using UnityEngine;
 
- public class MovingObjectHandler : MonoBehaviour
+public class MovingObjectHandler : MonoBehaviour
 {
-     public PathCreator path;
-     public float speed;
-     private float distance;
-     public bool mirror = true; 
-    
+    public PathCreator path;
+    public float speed;
+    private float distance;
+    public bool mirror = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +27,8 @@ using UnityEngine;
     // Update is called once per frame
     void Update()
     {
-        distance += speed * Time.deltaTime; 
+        distance += speed * Time.deltaTime;
         this.transform.position =
-            path.path.GetPointAtDistance(distance,mirror ? EndOfPathInstruction.Reverse : EndOfPathInstruction.Loop);
+            path.path.GetPointAtDistance(distance, mirror ? EndOfPathInstruction.Reverse : EndOfPathInstruction.Loop);
     }
 }

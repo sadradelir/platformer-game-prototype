@@ -16,7 +16,7 @@ see: Assets\Scripts\CharacterPhysics
 <img src="https://i.imgur.com/0Czn4xj.gif" height="300" />
 
 # Further notes
-- this was a prototype for game jam event and done in 3 days (with animations and pixel art)
+- this was a prototype for a game jam event and done in 3 days (including animations and pixel art)
 - because it was done in a tight time span it lacks some best practices which I mention here:
   - most of component variables are not implicitly access declared (yes, most of them are public)
   - there is no proper design patterns used in order to maintain better software layering
